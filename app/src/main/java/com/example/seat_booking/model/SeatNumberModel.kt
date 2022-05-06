@@ -4,4 +4,4 @@ import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-class SeatNumberModel(val name : String, var isClicked : Boolean = false) : Parcelable
+class SeatNumberModel(val name : String ) : Parcelable

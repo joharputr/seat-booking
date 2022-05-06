@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.seat_booking.R
-import com.example.seat_booking.model.SeatNumberModel
+import com.example.seat_booking.model.SeatModel
 import kotlinx.android.synthetic.main.seatlayout.view.*
 
 class SeatAdapter(
@@ -16,7 +16,7 @@ class SeatAdapter(
 ) :
     RecyclerView.Adapter<SeatAdapter.ViewHolder>() {
 
-    var list = arrayListOf<SeatNumberModel>()
+    var list = arrayListOf<SeatModel>()
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val text = view.text
@@ -29,7 +29,7 @@ class SeatAdapter(
         )
     }
 
-    fun addList(list: ArrayList<SeatNumberModel>) {
+    fun addList(list: ArrayList<SeatModel>) {
         this.list = list
         notifyDataSetChanged()
     }
@@ -48,7 +48,7 @@ class SeatAdapter(
         holder.text.text = item.name
     }
 
-    fun updateItem(list: ArrayList<SeatNumberModel>) {
+    fun updateItem(list: ArrayList<SeatModel>) {
         this.list = list
         notifyDataSetChanged()
     }
@@ -58,6 +58,6 @@ class SeatAdapter(
     }
 
     interface ClickCallback {
-        fun onClicked(item: SeatNumberModel, position: Int, list: ArrayList<SeatNumberModel>)
+        fun onClicked(item: SeatModel, position: Int, list: ArrayList<SeatModel>)
     }
 }
