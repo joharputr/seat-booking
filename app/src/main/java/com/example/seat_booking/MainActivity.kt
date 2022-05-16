@@ -2,6 +2,7 @@ package com.example.seat_booking
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -14,7 +15,6 @@ import com.example.seat_booking.model.SeatNumberModel
 import com.example.seat_booking.viewModel.SeatViewModel
 import com.example.seat_booking.viewModel.ViewModelFactory
 import com.google.android.material.tabs.TabLayoutMediator
-import com.google.gson.Gson
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
@@ -34,6 +34,7 @@ class MainActivity : AppCompatActivity() {
             numberSeat.add(SeatNumberModel(i.toString()))
             listFragment.add(SeatFragment(page = i))
         }
+
         var id = 0
         numberSeat.forEachIndexed { index, seatNumberModel ->
             for (i in index..index) {
@@ -41,10 +42,27 @@ class MainActivity : AppCompatActivity() {
                 sumSeat.add(SeatModel(id, "$i", pageTo = index + 1))
             }
         }
+
         viewModel.setList(sumSeat)
 
-
         setViewPager()
+
+
+        binding.btnBookSeat.setOnClickListener {
+            val seatBook = viewModel.sumSeat.value?.find {
+                it.isClicked
+            }
+
+
+            Toast.makeText(
+                this,
+                "Anda Booking gerbong ${seatBook?.pageTo} kursi ${seatBook?.name}",
+                Toast.LENGTH_SHORT
+            ).show()
+
+
+
+        }
 
     }
 

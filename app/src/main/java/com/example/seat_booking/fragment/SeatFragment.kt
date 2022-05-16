@@ -31,8 +31,8 @@ class SeatFragment(val page: Int) : Fragment() {
         Log.d(
             "listAdapter",
             " = " + Gson().toJson(viewModel.sumSeat.value) + "page = " + Gson().toJson(viewModel.sumSeat.value?.filter { it.pageTo == this.page } as ArrayList<SeatModel>))
-        adapter.addList(viewModel.sumSeat.value?.filter { it.pageTo == this.page } as ArrayList<SeatModel>)
 
+        adapter.addList(viewModel.sumSeat.value?.filter { it.pageTo == this.page } as ArrayList<SeatModel>)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

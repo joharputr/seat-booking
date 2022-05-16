@@ -17,4 +17,14 @@
         android:layout_height="match_parent"
         android:layout_below="@id/tabLayout" />
 
+    <Button
+        android:id="@+id/btn_book_seat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="15dp"
+        android:padding="20dp"
+        android:text="BOOKING KURSI"
+        android:textStyle="bold" />
+
 </RelativeLayout>
