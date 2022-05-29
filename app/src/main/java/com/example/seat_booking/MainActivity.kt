@@ -1,5 +1,6 @@
 package com.example.seat_booking
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -12,6 +13,7 @@ import com.example.seat_booking.databinding.ActivityMainBinding
 import com.example.seat_booking.fragment.SeatFragment
 import com.example.seat_booking.model.SeatModel
 import com.example.seat_booking.model.SeatNumberModel
+import com.example.seat_booking.ui.menu.ListTrain.ui.ListTrainActivity
 import com.example.seat_booking.viewModel.SeatViewModel
 import com.example.seat_booking.viewModel.ViewModelFactory
 import com.google.android.material.tabs.TabLayoutMediator
@@ -61,6 +63,11 @@ class MainActivity : AppCompatActivity() {
             ).show()
 
 
+            startActivity(
+                Intent(
+                    this, ListTrainActivity::class.java
+                )
+            )
 
         }
 
